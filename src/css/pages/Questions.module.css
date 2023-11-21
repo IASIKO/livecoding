@@ -1,0 +1,49 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.testContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.color {
+  width: 317px;
+  height: 145px;
+  background-color: white;
+}
+
+.pages {
+  width: 95.45px;
+  height: 35px;
+  border-radius: 6.36px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  width: 240px;
+  height: 60px;
+  border-radius: 8px;
+  border: none;
+  background-color: #747475;
+}
+
+.answers {
+  width: 510px;
+  height: 81px;
+}
+
+.asnw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f4f3f6;
+  margin: 20px;
+}
