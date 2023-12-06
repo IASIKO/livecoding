@@ -9,7 +9,9 @@ const Answer = ({ score, timer }) => {
       <div className={styles.answerContainer}>
         <h1>Color Quiz Results</h1>
         <Score score={score} />
-        <p>Your score is: {score}</p>
+        <p>
+          Your score is:<span> {score}</span>
+        </p>
         <div className={styles.time}>
           <img src={clock} alt="clock" />
           <span>{timer} seconds</span>
