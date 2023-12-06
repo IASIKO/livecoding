@@ -1,16 +1,18 @@
 import React from "react";
-import styles from '../css/pages/Answer.module.css'
+import styles from "../css/pages/Answer.module.css";
 import Score from "../components/Score";
 
-const Answer = () => {
+const Answer = ({ score, timer }) => {
   return (
-    <div>
-      <Score />
-      <h4>Color Quiz</h4>
+    <>
+      <Score score={score} />
+      <div className={styles.answerContainer}>
+        <h4>Color Quiz</h4>
 
-      <p>your score is:</p>
-      <p>Time: seconds</p>
-    </div>
+        <p>Your score is: {score}</p>
+        <p>Time: {timer} seconds</p>
+      </div>
+    </>
   );
 };
 

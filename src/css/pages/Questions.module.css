@@ -25,6 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 20px;
 }
 
 .button {
@@ -36,14 +37,34 @@
 }
 
 .answers {
-  width: 510px;
-  height: 81px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.asnw {
+.answ {
+  width: 510px;
+  height: 81px;
+  border-radius: 25px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #f4f3f6;
   margin: 20px;
+  text-align: center;
+}
+
+.answ h3 {
+  width: 49px;
+  height: 49px;
+  border-radius: 25px;
+  background-color: #ede8e3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.answ p {
+  margin: 0 auto;
 }

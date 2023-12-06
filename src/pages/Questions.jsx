@@ -1,45 +1,46 @@
-import React, { useEffect, useState } from "react";
 import styles from "../css/pages/Questions.module.css";
 import Score from "../components/Score";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const Questions = () => {
-  const [colorsData, setColorsData] = useState([]);
-  const [pageCounter, setPageCounter] = useState(1);
-  const [backgroundColor, setBackgroundColor] = useState("#156D63");
-  const [answers, setAnswers] = useState([]);
-  const [score, setScore] = useState(200);
-  const navigate = useNavigate();
+const Questions = ({
+  colorsData,
+  answersData,
+  pageCounter,
+  setPageCounter,
+  setShowResult,
+  backgroundColor,
+  setBackgroundColor,
+  score,
+  setScore,
+}) => {
+  const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
+  const [checkedAnswer, setCheckedAnswer] = useState("");
 
-  useEffect(() => {
-    const fetchColors = async () => {
-      try {
-        const response = await fetch("https://random-colors-lovat.vercel.app/");
-        const data = await response.json();
+  const alphabet = "ABC";
 
-        console.log(data[pageCounter - 1].answers);
-        setColorsData(data);
-        setAnswers(data[pageCounter - 1].answers);
-      } catch (error) {
-        console.log("error");
-      }
-    };
 
-    fetchColors();
-  }, [pageCounter]);
+  const chooseAnswerHandler = (answer) => {
+    if (answer == colorsData[pageCounter].color) {
+      setAnswerIsCorrect(true);
+    } else {
+      setAnswerIsCorrect(false);
+    }
+    setCheckedAnswer(answer);
+  };
+
+  const chosenAnswerHandler = (index) => {
+    return checkedAnswer === answersData[index] ? "#747475" : "";
+  };
 
   const onButtonClickHandler = () => {
     setPageCounter(pageCounter + 1);
-    if (pageCounter === 10) {
-      navigate("/answer");
+    if (pageCounter === colorsData.length - 1) {
+      setShowResult(true);
     }
-    setBackgroundColor(colorsData[pageCounter - 1].color);
-  };
-
-  const compareAnswerHandler = (index) => {
-    if (answers[index] == colorsData[pageCounter - 1].color) {
-      setPageCounter(pageCounter + 1);
-    } else {
+    setPageCounter(pageCounter + 1);
+    setBackgroundColor(colorsData[pageCounter].color);
+    setAnswerIsCorrect(null);
+    if (!answerIsCorrect) {
       setScore(score - 20);
     }
   };
@@ -50,33 +51,43 @@ const Questions = () => {
         <Score score={score} />
         <h4>Color Quiz</h4>
         <div className={styles.pages}>
-          <span>{`${pageCounter}/10`}</span>
+          <span>{`${pageCounter + 1}/10`}</span>
         </div>
       </div>
 
       <div className={styles.testContainer}>
-        <h4>color":</h4>
+        <h4>Color:</h4>
         <div
           className={styles.color}
           style={{ backgroundColor: `${backgroundColor}` }}
         ></div>
 
         <div className={styles.answers}>
-          {answers.map((ans, index) => (
-            <div
-              className={styles.asnw}
-              key={ans[index]}
-              onClick={compareAnswerHandler}
-            >
-              <h3>A</h3>
-              <p>{ans}</p>
-            </div>
-          ))}
+          {answersData.length > 0 &&
+            answersData.map((ans, index) => {
+              return (
+                <div
+                  className={styles.answ}
+                  key={index}
+                  onClick={() => {
+                    chooseAnswerHandler(ans);
+                  }}
+                  style={{ backgroundColor: chosenAnswerHandler(index) }}
+                >
+                  <h3>{alphabet[index]}</h3>
+                  <p>{ans}</p>
+                </div>
+              );
+            })}
+          <button
+            disabled={answerIsCorrect !== null ? false : true}
+            className={styles.button}
+            onClick={onButtonClickHandler}
+          >
+            Continue
+          </button>
         </div>
       </div>
-      <button className={styles.button} onClick={onButtonClickHandler}>
-        Continue
-      </button>
     </div>
   );
 };
