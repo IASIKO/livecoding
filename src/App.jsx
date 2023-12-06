@@ -10,7 +10,7 @@ function App() {
   const [pageCounter, setPageCounter] = useState(0);
   const [backgroundColor, setBackgroundColor] = useState();
   const [score, setScore] = useState(200);
-  const [timer, setTimer] = useState(0);
+  const [timer, setTimer] = useState(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,13 +37,13 @@ function App() {
   }, [colorsData, pageCounter]);
 
   useEffect(() => {
-    const timeOutId = setTimeout(() => {
-      setTimer(timer + 1);
-    }, 1000);
-    if (showResult === true) {
-      return clearTimeout(timeOutId);
+    if (!showResult) {
+      const timeOutId = setInterval(() => {
+        setTimer((prevSec) => prevSec + 1);
+      }, 1000);
+      return () => clearInterval(timeOutId);
     }
-  }, [timer]);
+  }, [showResult, setTimer]);
 
   return (
     <>

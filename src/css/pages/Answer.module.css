@@ -1,11 +1,11 @@
 .answerContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 55px;
 }
 
 p {
-    font-weight: 700px;
-    font-size: 38px;
+  font-weight: 700px;
+  font-size: 38px;
 }
