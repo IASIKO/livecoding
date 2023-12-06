@@ -6,7 +6,7 @@ const Answer = ({ score, timer }) => {
   return (
     <>
       <div className={styles.answerContainer}>
-        <h4>Color Quiz</h4>
+        <h1>Color Quiz Results</h1>
         <Score score={score} />
         <p>Your score is: {score}</p>
         <p>Time: {timer} seconds</p>

@@ -28,7 +28,7 @@ const Questions = ({
   };
 
   const chosenAnswerHandler = (index) => {
-    return checkedAnswer === answersData[index] ? "#747475" : "";
+    return checkedAnswer === answersData[index] ? "#5cb85c" : "";
   };
 
   const onButtonClickHandler = () => {
@@ -53,7 +53,7 @@ const Questions = ({
       </div>
 
       <div className={styles.testContainer}>
-        <h4>Color Quiz</h4>
+        <h1>Color Quiz</h1>
         <Score score={score} />
         <h4>Color:</h4>
         <div
@@ -81,7 +81,7 @@ const Questions = ({
           <button
             disabled={answerIsCorrect !== null ? false : true}
             style={{
-              backgroundColor: answerIsCorrect !== null ? "#009bd6" : "grey",
+              backgroundColor: answerIsCorrect !== null ? "#EEC721" : "grey",
               color: answerIsCorrect !== null ? "white" : "#babab6",
             }}
             className={styles.button}
