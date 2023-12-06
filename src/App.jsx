@@ -1,6 +1,7 @@
 import Questions from "./pages/Questions";
 import Answer from "./pages/Answer";
 import { useEffect, useState } from "react";
+import Loader from "./components/Loader";
 
 function App() {
   const [showResult, setShowResult] = useState(false);
@@ -10,6 +11,7 @@ function App() {
   const [backgroundColor, setBackgroundColor] = useState();
   const [score, setScore] = useState(200);
   const [timer, setTimer] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchColors = async () => {
@@ -18,6 +20,7 @@ function App() {
         const data = await response.json();
 
         setColorsData(data);
+        setLoading(false);
       } catch (error) {
         console.log("error");
       }
@@ -44,18 +47,24 @@ function App() {
 
   return (
     <>
-      {!showResult && (
-        <Questions
-          colorsData={colorsData}
-          answersData={answersData}
-          pageCounter={pageCounter}
-          setPageCounter={setPageCounter}
-          setShowResult={setShowResult}
-          backgroundColor={backgroundColor}
-          setBackgroundColor={setBackgroundColor}
-          score={score}
-          setScore={setScore}
-        />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {!showResult && (
+            <Questions
+              colorsData={colorsData}
+              answersData={answersData}
+              pageCounter={pageCounter}
+              setPageCounter={setPageCounter}
+              setShowResult={setShowResult}
+              backgroundColor={backgroundColor}
+              setBackgroundColor={setBackgroundColor}
+              score={score}
+              setScore={setScore}
+            />
+          )}
+        </>
       )}
       {showResult && <Answer score={score} timer={timer} />}
     </>

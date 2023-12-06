@@ -18,7 +18,6 @@ const Questions = ({
 
   const alphabet = "ABC";
 
-
   const chooseAnswerHandler = (answer) => {
     if (answer == colorsData[pageCounter].color) {
       setAnswerIsCorrect(true);
@@ -48,14 +47,14 @@ const Questions = ({
   return (
     <div>
       <div className={styles.head}>
-        <Score score={score} />
-        <h4>Color Quiz</h4>
         <div className={styles.pages}>
           <span>{`${pageCounter + 1}/10`}</span>
         </div>
       </div>
 
       <div className={styles.testContainer}>
+        <h4>Color Quiz</h4>
+        <Score score={score} />
         <h4>Color:</h4>
         <div
           className={styles.color}
@@ -81,10 +80,14 @@ const Questions = ({
             })}
           <button
             disabled={answerIsCorrect !== null ? false : true}
+            style={{
+              backgroundColor: answerIsCorrect !== null ? "#009bd6" : "grey",
+              color: answerIsCorrect !== null ? "white" : "#babab6",
+            }}
             className={styles.button}
             onClick={onButtonClickHandler}
           >
-            Continue
+            {pageCounter + 1 !== 10 ? "Next" : "Finish"}
           </button>
         </div>
       </div>
