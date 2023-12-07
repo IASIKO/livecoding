@@ -47,7 +47,7 @@
 }
 
 .answ {
-  width: 280px;
+  width: 320px;
   height: 41px;
   border-radius: 25px;
   display: flex;
@@ -57,11 +57,12 @@
   text-align: center;
   background-color: white;
   cursor: pointer;
-  transition: 0.7s;
+  transition: transform 0.7s;
 }
 
 .answ:hover {
   background-color: #7ae582;
+  transform: scale(1.15);
 }
 
 .answ h3 {
