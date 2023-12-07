@@ -18,6 +18,7 @@
 .answerContainer span {
   font-weight: 700;
 }
+
 .time {
   display: flex;
   flex-direction: column;
