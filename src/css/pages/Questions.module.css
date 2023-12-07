@@ -19,8 +19,6 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  animation: leftmove 0.5s;
-  animation-timing-function: ease-in;
 }
 
 .color {
@@ -93,14 +91,5 @@
   .color {
     width: 320px;
     height: 125px;
-  }
-}
-
-@keyframes leftmove {
-  from {
-    left: -15px;
-  }
-  to {
-    left: 0px;
   }
 }

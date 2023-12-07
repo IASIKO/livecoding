@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&family=Outfit:wght@500&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 400;
   border-left: 15px solid #5cb85c;
   border-bottom: 15px solid #5cb85c;
   background-color: #cccccc;
   height: 98vh;
-  animation: framemove 0.5s;
+  animation: framemove 0.8s;
   animation-timing-function: ease-in;
   position: relative;
 }
