@@ -45,51 +45,46 @@ const Questions = ({
   };
 
   return (
-    <div>
-      <div className={styles.head}>
-        <div className={styles.pages}>
-          <span>{`${pageCounter + 1}/10`}</span>
-        </div>
+    <div className={styles.testContainer}>
+      <div className={styles.pages}>
+        <span>{`${pageCounter + 1}/10`}</span>
       </div>
+      <h1>Color Quiz</h1>
+      <Score score={score} />
+      <h4>Color:</h4>
+      <div
+        className={styles.color}
+        style={{ backgroundColor: `${backgroundColor}` }}
+      ></div>
 
-      <div className={styles.testContainer}>
-        <h1>Color Quiz</h1>
-        <Score score={score} />
-        <h4>Color:</h4>
-        <div
-          className={styles.color}
-          style={{ backgroundColor: `${backgroundColor}` }}
-        ></div>
-
-        <div className={styles.answers}>
-          {answersData.length > 0 &&
-            answersData.map((ans, index) => {
-              return (
-                <div
-                  className={styles.answ}
-                  key={index}
-                  onClick={() => {
-                    chooseAnswerHandler(ans);
-                  }}
-                  style={{ backgroundColor: chosenAnswerHandler(index) }}
-                >
-                  <h3>{alphabet[index]}</h3>
-                  <p>{ans}</p>
-                </div>
-              );
-            })}
-          <button
-            disabled={answerIsCorrect !== null ? false : true}
-            style={{
-              backgroundColor: answerIsCorrect !== null ? "#EEC721" : "grey",
-              color: answerIsCorrect !== null ? "white" : "#babab6",
-            }}
-            className={styles.button}
-            onClick={onButtonClickHandler}
-          >
-            {pageCounter + 1 !== 10 ? "Next" : "Finish"}
-          </button>
-        </div>
+      <div className={styles.answers}>
+        {answersData.length > 0 &&
+          answersData.map((ans, index) => {
+            return (
+              <div
+                className={styles.answ}
+                key={index}
+                onClick={() => {
+                  chooseAnswerHandler(ans);
+                }}
+                style={{ backgroundColor: chosenAnswerHandler(index) }}
+              >
+                <h3>{alphabet[index]}</h3>
+                <p>{ans}</p>
+              </div>
+            );
+          })}
+        <button
+          disabled={answerIsCorrect !== null ? false : true}
+          style={{
+            backgroundColor: answerIsCorrect !== null ? "#EEC721" : "grey",
+            color: answerIsCorrect !== null ? "white" : "#babab6",
+          }}
+          className={styles.button}
+          onClick={onButtonClickHandler}
+        >
+          {pageCounter + 1 !== 10 ? "Next" : "Finish"}
+        </button>
       </div>
     </div>
   );

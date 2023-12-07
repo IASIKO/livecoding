@@ -1,21 +1,9 @@
-.head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .testContainer {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-}
-
-.color {
-  width: 410px;
-  height: 145px;
-  background-color: white;
-  border-radius: 10px;
+  position: relative;
 }
 
 .pages {
@@ -28,6 +16,18 @@
   align-items: center;
   justify-content: center;
   margin: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  animation: leftmove 0.5s;
+  animation-timing-function: ease-in;
+}
+
+.color {
+  width: 410px;
+  height: 145px;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .button {
@@ -37,6 +37,7 @@
   border: none;
   margin-top: 15px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .answers {
@@ -44,6 +45,8 @@
   flex-direction: column;
   align-items: center;
   margin-top: 15px;
+  animation: leftmove 0.5s;
+  animation-timing-function: ease-in; 
 }
 
 .answ {
@@ -83,8 +86,21 @@
 }
 
 @media only screen and (max-width: 480px) {
+  .pages {
+    top: 0;
+    left: 0;
+  }
   .color {
     width: 320px;
     height: 125px;
+  }
+}
+
+@keyframes leftmove {
+  from {
+    left: -15px;
+  }
+  to {
+    left: 0px;
   }
 }

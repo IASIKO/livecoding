@@ -1,10 +1,20 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
-
-  background-color: #CCCCCC;
+  border-left: 15px solid #5cb85c;
+  border-bottom: 15px solid #5cb85c;
+  background-color: #cccccc;
+  height: 98vh;
+  animation: framemove 0.5s;
+  animation-timing-function: ease-in;
+  position: relative;
 }
 
-body {
-  margin: 0;
+@keyframes framemove {
+  from {
+    left: -15px;
+  }
+  to {
+    left: 0px;
+  }
 }
