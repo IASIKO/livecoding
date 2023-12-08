@@ -3,9 +3,9 @@
 :root {
   font-family: 'Outfit', sans-serif;
   font-weight: 400;
-  border-left: 15px solid #5cb85c;
-  border-bottom: 15px solid #5cb85c;
-  background-color: #cccccc;
+  border-left: 15px solid #81c4bb;
+  border-bottom: 15px solid #81c4bb;
+  background-color: #daf5f1;
   height: 98vh;
   animation: framemove 0.8s;
   animation-timing-function: ease-in;

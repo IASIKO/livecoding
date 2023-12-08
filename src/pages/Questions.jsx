@@ -28,7 +28,7 @@ const Questions = ({
   };
 
   const chosenAnswerHandler = (index) => {
-    return checkedAnswer === answersData[index] ? "#5cb85c" : "";
+    return checkedAnswer === answersData[index] ? "#81c4bb" : "";
   };
 
   const onButtonClickHandler = () => {
@@ -77,7 +77,7 @@ const Questions = ({
         <button
           disabled={answerIsCorrect !== null ? false : true}
           style={{
-            backgroundColor: answerIsCorrect !== null ? "#EEC721" : "grey",
+            backgroundColor: answerIsCorrect !== null ? "#e88ca1" : "grey",
             color: answerIsCorrect !== null ? "white" : "#babab6",
           }}
           className={styles.button}

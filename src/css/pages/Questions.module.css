@@ -10,7 +10,7 @@
   width: 95.45px;
   height: 35px;
   border-radius: 6.36px;
-  background-color: #5cb85c;
+  background-color: #81c4bb;
   color: white;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@
   align-items: center;
   margin-top: 15px;
   animation: leftmove 0.5s;
-  animation-timing-function: ease-in; 
+  animation-timing-function: ease-in;
 }
 
 .answ {
@@ -62,8 +62,8 @@
 }
 
 .answ:hover {
-  background-color: #7ae582;
-  transform: scale(1.15);
+  background-color: #a6eee3;
+  transform: scale(1.05);
 }
 
 .answ h3 {
